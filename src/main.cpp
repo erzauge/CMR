@@ -3,11 +3,6 @@
 
 #include <tclap/CmdLine.h>
 
-namespace TCLAP {
-template <> struct ArgTraits<block> {
-  typedef ValueLike ValueCategory;
-};
-} // namespace TCLAP
 
 std::string dbl2str(double d)
 {
