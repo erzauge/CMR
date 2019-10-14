@@ -1,0 +1,6 @@
+[submodule "tools"]
+	path = tools
+	url = git@github.com:erzauge/tools.git
+[submodule "tclap"]
+	path = tclap
+	url = https://github.com/mirror/tclap.git
