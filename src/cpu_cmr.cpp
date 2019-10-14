@@ -135,7 +135,7 @@ void cpu_cmr::set_T(double B1_) {
  }
 
 
-void cpu_cmr::set_T2(double B1_,double B2_,) {
+void cpu_cmr::set_T2(double B1_,double B2_) {
   B1=B1_;
 	B1=B2_;
  	double dB=(B2-B1)/31.;
@@ -209,8 +209,8 @@ vector<float> cpu_cmr::measure() {
 
 void cpu_cmr::sweep() {
 	if_measured=false;
-  UnionFind uf_blue[32](N);
-  UnionFind uf_gray[32](N);
+  UnionFind uf_blue[32]{N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N};
+  UnionFind uf_gray[32]{N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N};
   spin_t mask1=0x5555555555555555ULL;
   spin_t mask2=0xAAAAAAAAAAAAAAAAULL;
   spin_t * rand=new spin_t[N];
@@ -283,9 +283,10 @@ ostream &cpu_cmr::save(ostream &stream) { return stream; }
 void cpu_cmr::swap(cpu_sys *sys, std::unique_ptr<spin_t[]> mask) {
   cpu_cmr *sys_wolff = dynamic_cast<cpu_cmr *>(sys);
   if (sys_wolff != NULL) {
-    std::cerr << "error try swap "<<mask[0] << '\n';
+    std::cerr << "error wrong type "<<mask[0];
     // swap(sys_wolff, std::move(mask));
   } else {
+		std::cerr << "error is not implemented "<< '\n';
     // LOG(LOG_ERROR) << "conversion error";
     exit(-2);
   }

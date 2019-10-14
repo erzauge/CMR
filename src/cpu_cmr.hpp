@@ -41,7 +41,7 @@ void load_J(string fname) override;
 void save_J(string fname) override;
 void sweep() override;
 void set_T(double ) override;
-void set_T(double ,double);
+void set_T2(double ,double);
 vector<float> measure() override;
 void save_sys(string prefix) override;
 long get_N() override;
